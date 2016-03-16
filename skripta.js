@@ -31,7 +31,8 @@ window.addEventListener('load', function() {
 
 		if (ustavi) {
 			ustavi = false;
-		} else {
+			
+		}else {
 			novId = (id+1) % vrednosti.length;
 			timeout = Math.floor((Math.random() * (maxCas-minCas)) + minCas);
 			setTimeout(function() {spremeniBarvo(novId)} , timeout);
@@ -40,6 +41,10 @@ window.addEventListener('load', function() {
 	
 	var stop = function(event) {
 		ustavi = true;
+			var zazeni = document.querySelector("#start");
+			zazeni.innerHTML = "Zaženi stroboskop"
+			zazeni.removeEventListener('click', stop);
+			zazeni.addEventListener('click', zagon);
 	}
 	
 	var zagon = function(event) {
